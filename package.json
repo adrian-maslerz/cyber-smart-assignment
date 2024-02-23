@@ -2,20 +2,26 @@
   "name": "cyber-smart-assignment",
   "version": "0.1.0",
   "private": true,
+  "main": "public/main.js",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/axios": "^0.14.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.82",
     "@types/react": "^18.2.57",
     "@types/react-dom": "^18.2.19",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.6.7",
+    "bootstrap": "^5.3.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
     "react-scripts": "5.0.1",
+    "sass": "^1.71.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -23,7 +29,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron:serve": "concurrently -k \"cross-env BROWSER=none npm run start\" \"npm run electron:start\"",
+    "electron:build": "npm run build && electron-builder -c.extraMetadata.main=build/main.js",
+    "electron:start": "wait-on tcp:127.0.0.1:3000 && electron ."
   },
   "eslintConfig": {
     "extends": [
@@ -43,7 +52,47 @@
       "last 1 safari version"
     ]
   },
+  "build": {
+    "appId": "com.cybersmart.app",
+    "directories": {
+      "output": "dist"
+    },
+    "productName": "Cat Facts",
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "identity": null,
+      "category": "private.app-category.entertainment"
+    },
+    "win": {
+      "target": "msi"
+    },
+    "dmg": {
+      "iconSize": 75,
+      "window": {
+        "width": 544,
+        "height": 408
+      },
+      "contents": [
+        {
+          "x": 450,
+          "y": 280
+        },
+        {
+          "x": 450,
+          "y": 170,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
+  },
   "devDependencies": {
-    "@types/axios": "^0.14.0"
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^29.0.1",
+    "electron-builder": "^24.12.0",
+    "wait-on": "^7.2.0"
   }
 }

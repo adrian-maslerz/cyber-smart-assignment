@@ -31,7 +31,7 @@ export default class FactsService {
 
     public getFavouriteFacts(): FactDto[] {
         try {
-            return <FactDto[]>JSON.parse(<string>this.storageService.getObject(this.storageKey)) || [];
+            return (JSON.parse(this.storageService.getObject(this.storageKey) as string) as FactDto[]) || [];
         } catch (e) {
             return [];
         }
