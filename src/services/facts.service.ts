@@ -36,4 +36,7 @@ export default class FactsService {
             return [];
         }
     }
+    public clearFavouriteFacts(): void {
+        this.storageService.saveObject(this.storageKey, JSON.stringify([]));
+    }
 }
