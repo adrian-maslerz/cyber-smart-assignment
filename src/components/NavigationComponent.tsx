@@ -6,7 +6,7 @@ const NavigationComponent = (): ReactElement => {
         <nav>
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/">Cat Facts</Link>
                 </li>
                 <li>
                     <Link to="/favourites">Favourites</Link>

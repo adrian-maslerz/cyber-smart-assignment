@@ -4,7 +4,7 @@ export default class ApiService {
     private readonly baseUrl: string;
     private httpClient: AxiosInstance;
     constructor() {
-        this.baseUrl = process.env.API_URL || '';
+        this.baseUrl = process.env.REACT_APP_API_URL || '';
         this.httpClient = axios.create({
             headers: {
                 "Content-type": "application/json"
@@ -13,6 +13,6 @@ export default class ApiService {
     }
 
     public async get(path: string, params?: any): Promise<any> {
-        return this.httpClient.get(this.baseUrl + path, { params: params })
+        return this.httpClient.get(this.baseUrl + path, { params})
     }
 }
