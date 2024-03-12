@@ -3,6 +3,7 @@ import {FactDto} from "../shared/interfaces/api/facts/dto/fact.dto";
 import {getCatFacts} from "../providers/getCatFacts";
 import FactComponent from "../components/fact/FactComponent";
 import {addCatFactToFavourites} from "../providers/addCatFactToFavourites";
+import {H1} from "../shared/styled-components/H1.styled.component";
 
 const CatFactsPage = (): JSX.Element => {
     const [fact, setFact] = useState<FactDto | null>(null);
@@ -32,17 +33,17 @@ const CatFactsPage = (): JSX.Element => {
 
     return (
         <>
-            <h1>Daily Cat Fact</h1>
+            <H1>Daily Cat Fact</H1>
             {
-                fact ? (
+                fact && (
                     <FactComponent
                         fact={fact}
                         onAddToFavourites={onAddToFavourites}
                         onDailyDelete={onDeleteDailyFact}
                         key={fact._id}
                     />
-            ) : null}
-            {!fact && !isLoading ? (<p>No daily fact!</p>) : null}
+            )}
+            {!fact && !isLoading && (<p>No daily fact!</p>)}
         </>
     )
 }

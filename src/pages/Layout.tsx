@@ -1,4 +1,4 @@
-import React, {JSX} from "react";
+import {JSX} from "react";
 import {Outlet} from "react-router-dom";
 import NavigationComponent from "../components/navigation/NavigationComponent";
 

@@ -1,10 +1,7 @@
-import React from 'react';
-import './App.scss';
-import {RouterRoutes} from "./routes/RouterRoutes";
+import {RouterRoutes as Routes} from "./routes/RouterRoutes";
 
 function App() {
-  return (<RouterRoutes></RouterRoutes>
-  );
+  return (<Routes />);
 }
 
 export default App;

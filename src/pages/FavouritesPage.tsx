@@ -3,6 +3,7 @@ import {FactDto} from "../shared/interfaces/api/facts/dto/fact.dto";
 import FactComponent from "../components/fact/FactComponent";
 import {getFavouriteCatFacts} from "../providers/getFavouriteCatFacts";
 import {clearFavouriteCatFacts} from "../providers/clearFavouriteCatFacts";
+import {H1} from "../shared/styled-components/H1.styled.component";
 
 const FavouritesPage = (): JSX.Element => {
     const [facts, setFacts] = useState<FactDto[]>([]);
@@ -18,7 +19,7 @@ const FavouritesPage = (): JSX.Element => {
     return (
         <>
             <div className="d-flex justify-content-between">
-                <h1>Favourite Cat facts</h1>
+                <H1>Favourite Cat facts</H1>
                 {facts.length ? (<button className="btn btn-outline-secondary mb-3" onClick={onClearAllFacts}>Clear
                     favourites</button>) : null}
             </div>

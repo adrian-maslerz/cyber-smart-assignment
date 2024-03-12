@@ -1,10 +1,12 @@
 import React, {ReactElement} from "react";
 import {NavLink} from "react-router-dom";
-import './NavigationComponent.scss'
-
+import styled from "styled-components";
 const NavigationComponent = (): ReactElement => {
+    const NAV = styled.nav`
+        margin-bottom: 30px;
+    `;
     return (
-        <nav className="navbar navbar-expand-lg bg-body-secondary">
+        <NAV className="navbar navbar-expand-lg bg-body-secondary">
             <div className="container-fluid">
                 <ul className="navbar-nav">
                     <li className="nav-item">
@@ -15,7 +17,7 @@ const NavigationComponent = (): ReactElement => {
                     </li>
                 </ul>
             </div>
-        </nav>
+        </NAV>
     )
 }
 
